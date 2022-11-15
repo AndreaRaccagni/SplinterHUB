@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-black bg-opacity-50 text-emerald-500">
+  <footer class="bg-black bg-opacity-50 text-sage">
     <div
       class="mx-auto max-w-7xl py-6 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8"
     >
@@ -8,7 +8,7 @@
           v-for="item in navigation"
           :key="item.name"
           :href="item.href"
-          class="hover:text-emerald-200"
+          class="hover:text-soft_springgreen"
           target="_blank"
         >
           <span class="sr-only">{{ item.name }}</span>
@@ -20,7 +20,7 @@
           &copy; Created by
           <a
             href="https://peakd.com/@yozen"
-            class="hover:text-emerald-200"
+            class="hover:text-soft_springgreen"
             target="_blank"
           >
             Yozen</a
