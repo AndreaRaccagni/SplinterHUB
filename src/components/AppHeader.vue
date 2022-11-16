@@ -18,7 +18,7 @@
         </div>
         <div class="ml-10 space-x-4">
           <a
-            @click="toggleLoginModal"
+            @click="$emit('toggleLoginModal')"
             class="inline-block cursor-pointer rounded-md border border-transparent bg-sage py-1 px-3 text-sm font-medium text-umber hover:bg-soft_springgreen"
             >Log in</a
           >
@@ -35,22 +35,10 @@
       </div>
     </nav>
   </header>
-  <TransitionRoot
-    :as="LoginModal"
-    :show="loginModalOpen"
-    @close="toggleLoginModal(false)"
-  ></TransitionRoot>
 </template>
 
 <script setup>
 import { accountStore } from '../stores/accounts.js';
-import { ref, Transition } from 'vue';
-import LoginModal from './LogInModal.vue';
-
-let loginModalOpen = ref(false);
-const toggleLoginModal = (open = false) => {
-  loginModalOpen.value = open;
-};
 
 const navigation = [
   { name: 'Splinterlands', href: 'https://splinterlands.com/' },

@@ -1,7 +1,14 @@
 <template>
-  <div class="w-screen h-screen flex flex-col">
+  <LoginModal
+    v-if="loginModalOpen"
+    @close="toggleLoginModal(false)"
+  ></LoginModal>
+  <div
+    :class="{ 'bg-umber bg-opacity-50 z-20': loginModalOpen }"
+    class="w-screen h-screen flex flex-col"
+  >
     <div class="relative z-10">
-      <AppHeader></AppHeader>
+      <AppHeader @toggleLoginModal="toggleLoginModal"></AppHeader>
     </div>
     <div class="flex grow items-center">
       <div class="w-1/2 m-8 z-10"><Title></Title></div>
@@ -29,4 +36,11 @@ import Title from './components/Title.vue';
 import MainOptionsList from './components/MainOptionsList.vue';
 import AppFooter from './components/AppFooter.vue';
 import AppHeader from './components/AppHeader.vue';
+import LoginModal from './components/LogInModal.vue';
+import { ref } from 'vue';
+
+const loginModalOpen = ref(false);
+const toggleLoginModal = (open = false) => {
+  loginModalOpen.value = true;
+};
 </script>
