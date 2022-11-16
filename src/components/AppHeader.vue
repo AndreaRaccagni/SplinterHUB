@@ -18,8 +18,8 @@
         </div>
         <div class="ml-10 space-x-4">
           <a
-            href="#"
-            class="inline-block rounded-md border border-transparent bg-sage py-1 px-3 text-sm font-medium text-umber hover:bg-soft_springgreen"
+            @click="toggleLoginModal"
+            class="inline-block cursor-pointer rounded-md border border-transparent bg-sage py-1 px-3 text-sm font-medium text-umber hover:bg-soft_springgreen"
             >Log in</a
           >
         </div>
@@ -35,9 +35,23 @@
       </div>
     </nav>
   </header>
+  <TransitionRoot
+    :as="LoginModal"
+    :show="loginModalOpen"
+    @close="toggleLoginModal(false)"
+  ></TransitionRoot>
 </template>
 
 <script setup>
+import { accountStore } from '../stores/accounts.js';
+import { ref, Transition } from 'vue';
+import LoginModal from './LogInModal.vue';
+
+let loginModalOpen = ref(false);
+const toggleLoginModal = (open = false) => {
+  loginModalOpen.value = open;
+};
+
 const navigation = [
   { name: 'Splinterlands', href: 'https://splinterlands.com/' },
   { name: 'Pricing', href: '#' },
@@ -45,4 +59,3 @@ const navigation = [
   { name: 'Company', href: '#' },
 ];
 </script>
-s
