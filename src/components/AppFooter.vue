@@ -26,7 +26,7 @@
             Yozen</a
           >
         </p>
-        <p class="text-center text-xs">All rights reserved.</p>
+        <p class="text-center text-xs">All rights reserved</p>
       </div>
     </div>
   </footer>
