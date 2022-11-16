@@ -8,7 +8,7 @@
         <div class="relative pb-8 text-soft_springgreen">
           <span
             v-if="functionalityIdx !== functionalities.length - 1"
-            class="absolute bottom-1 left-5 -ml-px h-6 w-0.5 bg-hunter_green"
+            class="absolute bottom-1 left-5 -ml-px h-6 w-0.5 bg-slate-900"
             aria-hidden="true"
           />
           <div class="flex justify-center items-center relative space-x-3">
@@ -43,19 +43,17 @@
 </template>
 
 <script setup>
-import { ShoppingCartIcon } from '@heroicons/vue/24/outline';
-
-const getCards = async () => {
-  try {
-    const resolve = await fetch(
-      'https://api.splinterlands.io/players/balances?username=yozen'
-    );
-    const result = await resolve.json();
-    console.log(result);
-  } catch (error) {
-    console.log(error);
-  }
-};
+import {
+  ShoppingCartIcon,
+  UserIcon,
+  DocumentDuplicateIcon,
+  CurrencyDollarIcon,
+} from '@heroicons/vue/24/solid';
+import {
+  getCards,
+  getPlayerSettings,
+  getPlayerBalances,
+} from './../helpers/splinterlandsApi.js';
 
 const functionalities = [
   {
@@ -64,16 +62,48 @@ const functionalities = [
     description:
       'List your card on market by choosing the right price and the right fee',
     method: getCards,
-    icon: ShoppingCartIcon,
-    iconBackground: 'bg-hunter_green',
+    icon: CurrencyDollarIcon,
+    iconBackground: 'bg-slate-900',
   },
   {
     id: 2,
     content: 'Get player info',
     description: '',
-    method: '#',
+    method: [getPlayerBalances, getPlayerSettings],
+    icon: UserIcon,
+    iconBackground: 'bg-slate-900',
+  },
+  {
+    id: 3,
+    content: 'Get player cards',
+    description: '',
+    method: getPlayerBalances,
+    icon: DocumentDuplicateIcon,
+    iconBackground: 'bg-slate-900',
+  },
+  {
+    id: 4,
+    content: 'Check Market',
+    description: '',
+    method: getPlayerBalances,
     icon: ShoppingCartIcon,
-    iconBackground: 'bg-umber',
+    iconBackground: 'bg-slate-900',
+  },
+  {
+    id: 5,
+    content: 'Get player info',
+    description: '',
+    method: getPlayerBalances,
+    icon: ShoppingCartIcon,
+    iconBackground: 'bg-slate-900',
+  },
+  {
+    id: 6,
+    content: 'Get player info',
+    description: '',
+    method: getPlayerBalances,
+    icon: ShoppingCartIcon,
+    iconBackground: 'bg-slate-900',
   },
 ];
 </script>
